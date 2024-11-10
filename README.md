@@ -141,7 +141,7 @@ The backend server will be available at `http://localhost:3333`.
 You can find the Postman collection for testing in the repository under `todo-api.postman_collection.json`.
 
 ## Screenshots
-![My Project Screenshot](./images/Screenshot 2567-11-10 at 6.43.26 PM.png)
+![My Project Screenshot](./images/Screenshot.png)
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
