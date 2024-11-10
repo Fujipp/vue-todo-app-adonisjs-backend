@@ -12,7 +12,7 @@
       <li></li>
     </ul>
   </template>
-  <style>
+  <style scoped>
   .effectbg {
     z-index: -1;
     position: absolute;

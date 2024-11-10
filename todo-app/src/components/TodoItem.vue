@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center justify-between border-b p-3">
-    <div class="flex flex-col items-start select-none text-dark dark:text-white">
+    <div class="flex flex-col items-start select-none text-dark ">
       <div class="flex items-center">
         <div class="relative cursor-pointer" @click.stop="toggleTodo">
           <input
