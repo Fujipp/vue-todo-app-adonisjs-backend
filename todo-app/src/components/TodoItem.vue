@@ -15,14 +15,11 @@
             class="absolute left-1 top-1 flex items-center justify-center w-6 h-6 transition bg-white rounded-full dot dark:bg-gray-500 peer-checked:translate-x-full peer-checked:dark:bg-white"
           ></div>
         </div>
-        <!-- ชื่อ task -->
         <span class="ms-3 text-lg font-medium text-gray-900 dark:text-gray-300 truncate max-w-[150px] sm:max-w-[250px] md:max-w-none">
           {{ todo.text }}
-          <!-- แสดงคำว่า complete ในหน้าจอปกติ -->
           <span v-if="todo.completed" class="text-green-500 hidden sm:inline">complete</span>
         </span>
       </div>
-      <!-- แสดงคำว่า complete ด้านล่างเฉพาะในมือถือ -->
       <span v-if="todo.completed" class="text-green-500 text-sm mt-1 block sm:hidden">
         complete
       </span>
@@ -43,7 +40,6 @@
 </template>
 
 <script setup lang="ts">
-// กำหนด props สำหรับ Todo item
 interface Todo {
   id: number;
   text: string;
@@ -54,25 +50,21 @@ const props = defineProps<{
   todo: Todo;
 }>();
 
-// กำหนดการ emit event สำหรับการ toggle และการลบ todo item
 const emit = defineEmits<{
   (e: 'toggle-todo', id: number): void;
   (e: 'remove-todo', id: number): void;
 }>();
 
-// ฟังก์ชันสำหรับการเปลี่ยนสถานะการทำเสร็จสิ้น
 function toggleTodo() {
   emit('toggle-todo', props.todo.id);
 }
 
-// ฟังก์ชันสำหรับการลบรายการ
 function removeTodo() {
   emit('remove-todo', props.todo.id);
 }
 </script>
 
 <style scoped>
-/* เพิ่มการจัดการการตัดข้อความ */
 .truncate {
   white-space: nowrap;
   overflow: hidden;

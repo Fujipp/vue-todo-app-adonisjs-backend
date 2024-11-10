@@ -15,7 +15,6 @@
     <div class="text-right text-sm text-gray-500 mt-1">
       {{ newTodo.length }}/50 characters
     </div>
-    <!-- Toast notification -->
     <div v-if="showToast" :class="['fixed bottom-4 right-4 text-white px-4 py-2 rounded shadow', toastType === 'success' ? 'bg-green-500' : 'bg-red-500']">
       {{ toastMessage }}
     </div>
@@ -37,31 +36,28 @@ const emit = defineEmits<{
 function handleSubmit() {
   if (newTodo.value.trim() && newTodo.value.length <= 50) {
     emit('add-todo', newTodo.value);
-    newTodo.value = ''; // ล้างค่าช่อง input หลังจากเพิ่มรายการ
+    newTodo.value = '';
 
-    // แสดง Toast notification สำเร็จ
     toastMessage.value = 'Task added successfully!';
     toastType.value = 'success';
     showToast.value = true;
     setTimeout(() => {
-      showToast.value = false; // ซ่อน Toast หลังจาก 3 วินาที
+      showToast.value = false;
     }, 3000);
   } else {
-    // แสดง Toast notification กรณีไม่มีชื่อ
     toastMessage.value = 'Please enter a task name!';
     toastType.value = 'error';
     showToast.value = true;
     setTimeout(() => {
-      showToast.value = false; // ซ่อน Toast หลังจาก 3 วินาที
+      showToast.value = false;
     }, 3000);
   }
 }
 </script>
 
 <style scoped>
-/* สไตล์สำหรับ Toast notification */
 .fixed {
   position: fixed;
-  z-index: 50; /* ให้ Toast อยู่ด้านบนสุด */
+  z-index: 50;
 }
 </style>
